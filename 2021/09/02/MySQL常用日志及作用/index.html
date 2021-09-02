@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="books, Michael">
+    <meta name="keywords" content="MySQL常用日志及作用, Michael">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>books | Michael</title>
+    <title>MySQL常用日志及作用 | Michael</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">books</h1>
+                    <h1 class="description center-align post-title">MySQL常用日志及作用</h1>
                 </div>
             </div>
         </div>
@@ -455,12 +455,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%97%A5%E5%BF%97/">
+                                <span class="chip bg-color">日志</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                面试
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -469,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-29
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    319
                 </div>
                 
 
@@ -510,7 +535,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>什么是日志？我现在写的这篇博客从某种意义上讲也是一种日志，它是学习生活中的日志，记录了我学习、工作、生活中的点点滴滴。同样，计算机系统中的日志也是为了记录系统活动中的一些信息，它相当于是计算机系统里的监控视频。当系统出现问题我们想回看到底发生了，或者我们想让系统回到出现故障之前的状态的时候，日志文件就能帮助我们做到这些。</p>
+<p>本篇博客讲重点分析MySQL数据库中的几种常用的日志及其作用。</p>
+<h2 id="MySQL日志文件"><a href="#MySQL日志文件" class="headerlink" title="MySQL日志文件"></a>MySQL日志文件</h2><p>MySQL中存在七种日志文件，它们分别是：</p>
+<ul>
+<li><p><strong>重做日志（redo log）</strong></p>
+</li>
+<li><p><strong>回滚日志（undo log）</strong></p>
+</li>
+<li><p><strong>二进制日志（binlog）</strong></p>
+</li>
+<li><p>错误日志（errorlog）</p>
+</li>
+<li><p>慢查询日志（slow query log）</p>
+</li>
+<li><p>一般查询日志（general log）</p>
+</li>
+<li><p>中继日志（relay log）  </p>
+<p>这几种日志中，重做日志和回滚日志与事务操作密切相关，通常会被一起称为事务日志；二进制日志也与事务操作有一定的关系。在开发中我们重点关注和使用的就是这三种日志。   </p>
+<h2 id="重做日志（redo-log）"><a href="#重做日志（redo-log）" class="headerlink" title="重做日志（redo log）"></a>重做日志（redo log）</h2></li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -526,7 +571,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Michael</a>
+                    <a href="/about" rel="external nofollow noreferrer">llz</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -536,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://llz20.com/books/index.html">https://llz20.com/books/index.html</a>
+                    <a href="https://llz20.com/2021/09/02/MySQL%E5%B8%B8%E7%94%A8%E6%97%A5%E5%BF%97%E5%8F%8A%E4%BD%9C%E7%94%A8/">https://llz20.com/2021/09/02/MySQL%E5%B8%B8%E7%94%A8%E6%97%A5%E5%BF%97%E5%8F%8A%E4%BD%9C%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,7 +594,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Michael</a>
+                    <a href="/about" target="_blank">llz</a>
                     !
                 </span>
             </div>
@@ -573,7 +618,23 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%97%A5%E5%BF%97/">
+                                    <span class="chip bg-color">日志</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -748,34 +809,58 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/books/index.html">
+                <a href="/2021/09/02/MySQL%E5%B8%B8%E7%94%A8%E6%97%A5%E5%BF%97%E5%8F%8A%E4%BD%9C%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="books">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MySQL常用日志及作用">
                         
-                        <span class="card-title">books</span>
+                        <span class="card-title">MySQL常用日志及作用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            MySQL日志文件是工作和面试中经常会遇到的问题，本文主要介绍MySQL中几种常用的日志文件以及它们的作用。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Michael
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%97%A5%E5%BF%97/">
+                        <span class="chip bg-color">日志</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -783,16 +868,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/books/index.html">
+                <a href="/2021/09/01/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="books">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Java学习笔记">
                         
-                        <span class="card-title">books</span>
+                        <span class="card-title">Java学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,17 +888,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Michael
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    编程语言
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
