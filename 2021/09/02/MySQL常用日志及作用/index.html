@@ -508,14 +508,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    13 分
                 </div>
                 
 
@@ -549,9 +549,9 @@
 </ul>
 <p>这几种日志中，重做日志和回滚日志与事务操作密切相关，通常会被一起称为事务日志；二进制日志也与事务操作有一定的关系。在开发中我们重点关注和使用的就是这三种日志。</p>
 <h2 id="重做日志（redo-log）"><a href="#重做日志（redo-log）" class="headerlink" title="重做日志（redo log）"></a>重做日志（redo log）</h2><p>重做日志是由MySQL的Innodb存储引擎提供维护的，该文件只存在于Innodb存储引擎下；</p>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用:"></a>作用:</h4><p>当数据库对数据对象做修改的时候，需要把数据页从磁盘读到<em>buffer pool</em>后，再在<em>buffer pool</em>中对数据进行修改，此时<em>buffer pool</em>中的数据页就与磁盘上的数据页内容不一致，称<em>buffer pool</em>的数据页为<strong>dirty page（脏数据）</strong>，假设此时发生了非正常的DB服务重启，但当前被修改的数据还只在内存中有效，并没有同步到磁盘文件中（同步到磁盘文件是一个随机IO），导致的后果就是发生数据丢失。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>当数据库对数据对象做修改的时候，需要把数据页从磁盘读到<em>buffer pool</em>后，再在<em>buffer pool</em>中对数据进行修改，此时<em>buffer pool</em>中的数据页就与磁盘上的数据页内容不一致，称<em>buffer pool</em>的数据页为<strong>dirty page（脏数据）</strong>，假设此时发生了非正常的DB服务重启，但当前被修改的数据还只在内存中有效，并没有同步到磁盘文件中（同步到磁盘文件是一个随机IO），导致的后果就是发生数据丢失。</p>
 <p>为了确保事务的<strong>持久性</strong>，redo日志记录事务执行后的状态，用来恢复未写入<em>data file</em>的已成功事务更新的数据。防止在发生故障的时间点，尚有脏页未写入磁盘，在重启MySQL服务的时候，能够根据redo log进行重做，从而保证事务的持久性。</p>
-<h4 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h4><p>物理格式的日志，记录的是物理数据页面的修改信息，简单来说就是记录着某某页做了某某修改；</p>
+<h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><p>物理格式的日志，记录的是物理数据页面的修改信息，简单来说就是记录着某某页做了某某修改；</p>
 <p>Innodb存储引擎提供了重做日志文件组（group），每个重做日志文件组包含着重做日志文件；默认是提供了一个重做日志文件组，文件组下包含两个大小相同的重做日志文件；</p>
 <p>Innodb存储引擎的重做日志文件写入流程：先写重做日志文件1，当文件1被顺序写满时，会切换到重做日志文件2，再当重做日志文件2也被写满时，会再切换到重做日志文件1中，依次循环； 所以说重做日志文件是 <em>循环覆盖写入的</em> 。</p>
 <p>因为重做日志是循环覆盖写入的，所以不能使用其进行整个数据库的数据恢复，它只能保证数据库宕机时的事务的完整性数据；如果想要恢复全部数据的话，只能使用 binlog 二进制日志（归档日志）进行恢复。</p>
@@ -563,17 +563,48 @@
 <p>注意：重做日志文件的大小设置对于innodb存储引擎的性能有很大的影响。</p>
 <p>重做日志文件不能设置的太大，也不能设置的太小；如果设置的太大，在数据库意外宕机后进行恢复时会需要很长时间；但是也不能设置的太小，因为设置的太小会导致一个事务的日志需要多次切换重做日志文件进行写入，那么在覆盖掉之前的重做日志时，需要将要被覆盖的重做日志对应在内存中的脏页进行写盘（刷盘）；因为不写盘的话，如果重做日志被覆盖掉了，然后数据库意外宕机了，那么之前没有写盘的数据将没法在数据库重启时进行恢复了，并且如果频繁的进行重做日志的覆盖的话，那么就会频繁的进行脏页刷盘，进而导致数据库性能的抖动。</p>
 <p>那重做日志应该设置多大呢？ 一般来说，redo log日志文件的全部大小，应该足够容纳服务器一个小时的活动内容。如果统计出一小时的重做日志写入量为 500M 的话，由于 redo log 日志文件默认有 2 个，所以需要设置 innodb_log_file_size=250M ；</p>
-<h4 id="产生时间："><a href="#产生时间：" class="headerlink" title="产生时间："></a>产生时间：</h4><p>事务开始之后就产生redo log，redo log的落盘并不是随着事务的提交才写入的，而是在事务的执行过程中，就开始将修改内容写入redo log文件中。</p>
-<h4 id="释放时间："><a href="#释放时间：" class="headerlink" title="释放时间："></a>释放时间：</h4><p>当对应事务的脏页写入到磁盘之后，此事务的redo log记录的使命也就完成了，重做日志占用的空间就可以重用（被覆盖）。</p>
-<h4 id="对应的物理文件："><a href="#对应的物理文件：" class="headerlink" title="对应的物理文件："></a>对应的物理文件：</h4><p>默认情况下，对应的物理文件位于数据库的data目录下的ib_logfile1&amp;ib_logfile2</p>
+<h4 id="产生时间"><a href="#产生时间" class="headerlink" title="产生时间"></a>产生时间</h4><p>事务开始之后就产生redo log，redo log的落盘并不是随着事务的提交才写入的，而是在事务的执行过程中，就开始将修改内容写入redo log文件中。</p>
+<h4 id="释放时间"><a href="#释放时间" class="headerlink" title="释放时间"></a>释放时间</h4><p>当对应事务的脏页写入到磁盘之后，此事务的redo log记录的使命也就完成了，重做日志占用的空间就可以重用（被覆盖）。</p>
+<h4 id="对应的物理文件"><a href="#对应的物理文件" class="headerlink" title="对应的物理文件"></a>对应的物理文件</h4><p>默认情况下，对应的物理文件位于数据库的data目录下的ib_logfile1&amp;ib_logfile2</p>
 <p>innodb_log_group_home_dir 指定日志文件组所在的路径，默认./ ，表示在数据库的数据目录下。</p>
-<h4 id="写入磁盘时间："><a href="#写入磁盘时间：" class="headerlink" title="写入磁盘时间："></a>写入磁盘时间：</h4><p>很重要一点，redo log是什么时候写盘的？前面说了是在事物开始之后逐步写盘的。之所以说重做日志是在事务开始之后逐步写入重做日志文件，而不一定是事务提交才写入重做日志缓存，原因就是，重做日志有一个缓存区Innodb_log_buffer，Innodb_log_buffer的默认大小为8M，Innodb存储引擎先将重做日志写Innodb_log_buffer中。然后会通过以下三种方式将innodb日志缓冲区的日志刷新到磁盘：</p>
+<h4 id="写入磁盘时间"><a href="#写入磁盘时间" class="headerlink" title="写入磁盘时间"></a>写入磁盘时间</h4><p>很重要一点，redo log是什么时候写盘的？前面说了是在事物开始之后逐步写盘的。之所以说重做日志是在事务开始之后逐步写入重做日志文件，而不一定是事务提交才写入重做日志缓存，原因就是，重做日志有一个缓存区Innodb_log_buffer，Innodb_log_buffer的默认大小为8M，Innodb存储引擎先将重做日志写Innodb_log_buffer中。然后会通过以下三种方式将innodb日志缓冲区的日志刷新到磁盘：</p>
 <ol>
 <li>Master Thread 每秒一次执行刷新Innodb_log_buffer到重做日志文件。</li>
 <li>每个事务提交时会将重做日志刷新到重做日志文件。</li>
 <li>当重做日志缓存可用空间 少于一半时，重做日志缓存被刷新到重做日志文件</li>
 </ol>
 <p>由此可以看出，重做日志通过不止一种方式写入到磁盘，尤其是对于第一种方式，Innodb_log_buffer到重做日志文件是Master Thread线程的定时任务。因此重做日志的写盘，并不一定是随着事务的提交才写入重做日志文件的，而是随着事务的开始，逐步开始的。另外引用《MySQL技术内幕 Innodb 存储引擎》（page37）上的原话：即使某个事务还没有提交，Innodb存储引擎仍然每秒会将重做日志缓存刷新到重做日志文件。这一点是必须要知道的，因为这可以很好地解释再大的事务的提交（commit）的时间也是很短暂的。</p>
+<h2 id="回滚日志（undo-log）"><a href="#回滚日志（undo-log）" class="headerlink" title="回滚日志（undo log）"></a>回滚日志（undo log）</h2><h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>保证数据的原子性，保存了事务发生之前的数据的一个版本，可以用于回滚，同时可以提供多版本并发控制下的读（MVCC），也即非锁定读。</p>
+<h4 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h4><p>逻辑格式的日志，在执行undo的时候，仅仅是将数据从逻辑上恢复至事务之前的状态，而不是从物理页面上操作实现的，这一点是不同于redo log的。</p>
+<p>比如说我们要insert一条数据，那么undo log就会产生一条对应的delete日志，并且与当前事务的txid（事务唯一标识）进行了关联，用于支持回滚和MVCC；像如果在一个事务中执行了多个update、insert、delete的语句时，由于事务具备原子性，如果其中一个语句执行失败，那么之前执行成功的语句就要被回滚撤销掉，此时就会根据当前事务txid在undo log中查找到保存的日志进行回滚；</p>
+<p>需要注意的是：写入undo log的这个操作也是需要记录到redo log重做日志中的；</p>
+<p>为什么也要记录到redo log中呢？举个场景，当事务在没执行完时MySQL意外宕机了，那么在数据库重启后需要恢复事务，如果事务需要回滚，但时你在内存中保存的undo log还没有写入磁盘，在宕机时就丢失了，那么就会导致无法回滚，就会出现数据不一致的问题；而如果记录到了redo log中，则可以根据redo log进行重做，然后根据重做的undo log进行回滚。</p>
+<h4 id="产生时间-1"><a href="#产生时间-1" class="headerlink" title="产生时间"></a>产生时间</h4><p>事务开始之前，将为当前版本生成undo log，undo也会产生redo来保证undo log的可靠性。</p>
+<h4 id="释放时间-1"><a href="#释放时间-1" class="headerlink" title="释放时间"></a>释放时间</h4><p>当事务提交之后，undo log并不能立马被删除，而是放入待清理的链表，由purge线程判断是否由其他事务在使用undo段中表的上一个事务之前的版本信息，决定是否可以清理undo log的日志空间。</p>
+<h4 id="对应的物理文件-1"><a href="#对应的物理文件-1" class="headerlink" title="对应的物理文件"></a>对应的物理文件</h4><p>MySQL5.6之前，undo表空间位于共享表空间的回滚段中，共享表空间的默认的名称是ibdata，位于数据文件目录中。</p>
+<p>MySQL5.6之后，undo表空间可以配置成独立的文件，但是提前需要在配置文件中配置，完成数据库初始化后生效且不可改变undo log文件的个数</p>
+<p>如果初始化数据库之前没有进行相关配置，那么就无法配置成独立的表空间了。</p>
+<p><strong>关于MySQL5.7之后的独立undo 表空间配置参数如下：</strong></p>
+<p>innodb_undo_directory = /data/un<a target="_blank" rel="noopener" href="https://www.2cto.com/os/dos/">dos</a>pace/ –undo独立表空间的存放目录 innodb_undo_logs = 128 –回滚段为128KB innodb_undo_tablespaces = 4 –指定有4个undo log文件</p>
+<p>如果undo使用的共享表空间，这个共享表空间中又不仅仅是存储了undo的信息，共享表空间的默认为与MySQL的数据目录下面，其属性由参数innodb_data_file_path配置。undo是在事务开始之前保存的被修改数据的一个版本，产生undo日志的时候，同样会伴随类似于保护事务持久化机制的redolog的产生。默认情况下undo文件是保持在共享表空间的，也即ibdatafile文件中，当数据库中发生一些大的事务性操作的时候，要生成大量的undo信息，全部保存在共享表空间中的。因此共享表空间可能会变的很大，默认情况下，也就是undo 日志使用共享表空间的时候，被“撑大”的共享表空间是不会也不能自动收缩的。因此，mysql5.7之后的“独立undo 表空间”的配置就显得很有必要了。</p>
+<h2 id="二进制日志（binlog）"><a href="#二进制日志（binlog）" class="headerlink" title="二进制日志（binlog）"></a>二进制日志（binlog）</h2><p>binlog 二进制日志（归档日志），这个日志是由MySql的 <em>server层</em> 进行维护的；不管当前MySql使用的是什么存储引擎，binlog归档日志都是支持的；</p>
+<h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><ul>
+<li><p>用于复制，在主从复制中，从库利用主库上的binlog进行重播，实现主从同步。</p>
+</li>
+<li><p>数据恢复，用于数据库的基于时间点的还原。</p>
+<p><img src="/Users/thu-llz20/Desktop/binlog.png" alt="binlog"></p>
+</li>
+</ul>
+<h4 id="内容-2"><a href="#内容-2" class="headerlink" title="内容"></a>内容</h4><p>　逻辑格式的日志，可以简单认为就是执行过的事务中的sql语句。但又不完全是sql语句这么简单，而是包括了执行的sql语句（增删改）反向的信息，也就意味着delete对应着delete本身和其反向的insert；update对应着update执行前后的版本的信息；insert对应着delete和insert本身的信息。在使用mysqlbinlog解析binlog之后一些都会真相大白。因此可以基于binlog做到类似于oracle的闪回功能，其实都是依赖于binlog中的日志记录。</p>
+<h4 id="产生时间-2"><a href="#产生时间-2" class="headerlink" title="产生时间"></a>产生时间</h4><p>事务提交的时候，一次性将事务中的sql语句（一个事物可能对应多个sql语句）按照一定的格式记录到binlog中。这里与redo log很明显的差异就是redo log并不一定是在事务提交的时候刷新到磁盘，redo log是在事务开始之后就开始逐步写入磁盘。因此对于事务的提交，即便是较大的事务，提交（commit）都是很快的，但是在开启了bin_log的情况下，对于较大事务的提交，可能会变得比较慢一些。这是因为binlog是在事务提交的时候一次性写入的造成的，这些可以通过测试验证。</p>
+<h4 id="释放时间-2"><a href="#释放时间-2" class="headerlink" title="释放时间"></a>释放时间</h4><p>binlog的默认是保持时间由参数expire_logs_days配置，也就是说对于非活动的日志文件，在生成时间超过expire_logs_days配置的天数之后，会被自动删除。</p>
+<h4 id="对应的物理文件-2"><a href="#对应的物理文件-2" class="headerlink" title="对应的物理文件"></a>对应的物理文件</h4><p>配置文件的路径为log_bin_basename，binlog日志文件按照指定大小，当日志文件达到指定的最大的大小之后，进行滚动更新，生成新的日志文件。对于每个binlog日志文件，通过一个统一的index文件来组织。</p>
+<h4 id="与redo-log-的区别"><a href="#与redo-log-的区别" class="headerlink" title="与redo log 的区别"></a>与redo log 的区别</h4><p>二进制日志的作用之一是还原数据库的，这与redo log很类似，很多人混淆过，但是两者有本质的不同</p>
+<p><strong>作用不同</strong>：redo log是保证事务的持久性的，是事务层面的，binlog作为还原的功能，是数据库层面的（当然也可以精确到事务层面的），虽然都有还原的意思，但是其保护数据的层次是不一样的。</p>
+<p><strong>内容不同</strong>：redo log是物理日志，是数据页面的修改之后的物理记录，binlog是逻辑日志，可以简单认为记录的就是sql语句。</p>
+<p>另外，两者日志产生的时间，可以释放的时间，在可释放的情况下清理机制，都是完全不同的。</p>
+<p>恢复数据时候的效率，基于物理日志的redo log恢复数据的效率要高于语句逻辑日志的binlog。</p>
+<p>关于事务提交时，redo log和binlog的写入顺序，为了保证主从复制时候的主从一致（当然也包括使用binlog进行基于时间点还原的情况），是要严格一致的，MySQL通过两阶段提交过程来完成事务的一致性的，也即redo log和binlog的一致性的，理论上是先写redo log，再写binlog，两个日志都提交成功（刷入磁盘），事务才算真正的完成。</p>
 
                 
             </div>
@@ -1130,7 +1161,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2k</span>
+                        class="white-color">3.9k</span>
             
             
             
