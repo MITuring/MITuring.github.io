@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java学习笔记, Michael">
+    <meta name="keywords" content="存储管理, Michael">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java学习笔记 | Michael</title>
+    <title>存储管理 | Michael</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java学习笔记</h1>
+                    <h1 class="description center-align post-title">存储管理</h1>
                 </div>
             </div>
         </div>
@@ -455,13 +455,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -469,8 +465,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
-                                编程语言
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
                             </a>
                         
                     </div>
@@ -482,28 +478,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-11-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -523,7 +519,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>什么是存储管理？顾名思义，存储管理就是对存储器进行管理。主要是指对内存的管理。</p>
+<h3 id="单道程序存储管理"><a href="#单道程序存储管理" class="headerlink" title="单道程序存储管理"></a>单道程序存储管理</h3><p>单道程序存储管理是最简单的一种存储管理方案。它的基本思路是把整个内存划分为两个区域：系统区和用户区。然后每次把一个应用程序装入到用户区中运行，由它和操作系统共享整个内存。而且从装入开始一直到它运行结束，在这段时间内，该程序始终独占整个用户区。当它运行结束后，操作系统再装入一个新的恶程序把它覆盖。</p>
+<h4 id="优点：简单、开销小、易于管理。适合单用户、单任务的操作系统。"><a href="#优点：简单、开销小、易于管理。适合单用户、单任务的操作系统。" class="headerlink" title="优点：简单、开销小、易于管理。适合单用户、单任务的操作系统。"></a>优点：简单、开销小、易于管理。适合单用户、单任务的操作系统。</h4><h4 id="缺点：无法实现多个程序并发运行、内存使用效率不高、没有内存保护、地址空间有限"><a href="#缺点：无法实现多个程序并发运行、内存使用效率不高、没有内存保护、地址空间有限" class="headerlink" title="缺点：无法实现多个程序并发运行、内存使用效率不高、没有内存保护、地址空间有限"></a>缺点：无法实现多个程序并发运行、内存使用效率不高、没有内存保护、地址空间有限</h4><h3 id="分区存储管理"><a href="#分区存储管理" class="headerlink" title="分区存储管理"></a>分区存储管理</h3><p>最简单的多道存储管理方案就是分区存储管理。基本思路：把整个内存划分为两大区域，及系统区和用户区，然后又把用户区划分为若干个分区。每个分区的大小可以相等也可以不等，然后每个进程占用其中的一个分区。这样，就可以在内存当中同时保留多个进程，让它们共享整个用户区，从而实现多个进程的并发运行。这种存储管理方法比较适合于多道程序系统和分时系统。具体的实现方式上有两种：固定分区和可变分区。</p>
+<h4 id="固定分区存储管理"><a href="#固定分区存储管理" class="headerlink" title="固定分区存储管理"></a>固定分区存储管理</h4><p>基本思路：各个用户分区的个数、位置和大小一旦确定后，就固定不变、不能再修改了。为满足不同程序的存储需求，如有的程序较大，有的程序较小，因此各个分区的大小可以相等，也可以不等。一般来说，会设置多个小分区，适量的中分区，以及少量的大分区。</p>
+<p>内存分配实现方式：多个输入队列方式和单个输入队列方式</p>
+<p>在多个输入队列的方式下，对于每一个用户分区，都会有一个相应的输入队列。当一个新的进程进来时，就把它加入到某一个输入队列当中去。要求该输入队列所对应的那个分区，是能装得下这个进程的最小分区。这样做的缺点是会出现，小分区的输入队列是满的，而大分区的输入队列却是空的。也就是说，一方面有很多小的进程在等待进入内存，而另一方面在内存中却存在着大量的空闲空间。</p>
+<p>单个输入队列方式，在选择进程时，一种方法是最先匹配法，即选择离队首最近的、能够装入该分区的进程。缺点是如果选中的进程是一个比较小的进程，就会浪费大量的存储空间。因此另一种方法是最佳匹配法，即先搜索整个队列，从中选择能够装入该分区的最大进程，从而尽可能少地浪费空间。</p>
+<h4 id="优点：易于实现，系统开销小。"><a href="#优点：易于实现，系统开销小。" class="headerlink" title="优点：易于实现，系统开销小。"></a>优点：易于实现，系统开销小。</h4><h4 id="缺点：内存利用率不高，内碎片造成很大的浪费。分区的总数固定，限制了并发执行的程序个数。缺乏内存保护。每个应用程序的地址空间的大小有限，不能超过物理内存大小。"><a href="#缺点：内存利用率不高，内碎片造成很大的浪费。分区的总数固定，限制了并发执行的程序个数。缺乏内存保护。每个应用程序的地址空间的大小有限，不能超过物理内存大小。" class="headerlink" title="缺点：内存利用率不高，内碎片造成很大的浪费。分区的总数固定，限制了并发执行的程序个数。缺乏内存保护。每个应用程序的地址空间的大小有限，不能超过物理内存大小。"></a>缺点：内存利用率不高，内碎片造成很大的浪费。分区的总数固定，限制了并发执行的程序个数。缺乏内存保护。每个应用程序的地址空间的大小有限，不能超过物理内存大小。</h4><h3 id="可变分区存储管理"><a href="#可变分区存储管理" class="headerlink" title="可变分区存储管理"></a>可变分区存储管理</h3><p>基本思路：分区不是预先划分好的固定区域，而是动态创建的。在装入一个程序时，系统将根据它的需求和内存空间的使用情况来决定是否分配。</p>
+<h4 id="优点：分区的个数、位置和大小都是随着进程的进出而动态变化的，非常灵活。"><a href="#优点：分区的个数、位置和大小都是随着进程的进出而动态变化的，非常灵活。" class="headerlink" title="优点：分区的个数、位置和大小都是随着进程的进出而动态变化的，非常灵活。"></a>优点：分区的个数、位置和大小都是随着进程的进出而动态变化的，非常灵活。</h4><h4 id="缺点：在内存中可能会存在内碎片。"><a href="#缺点：在内存中可能会存在内碎片。" class="headerlink" title="缺点：在内存中可能会存在内碎片。"></a>缺点：在内存中可能会存在内碎片。</h4><h4 id="可变分区的实现"><a href="#可变分区的实现" class="headerlink" title="可变分区的实现"></a>可变分区的实现</h4><p>实现可变分区的存储管理技术需要解决4个方面的问题：内存管理的数据结构、内存的分配算法、内存的回收方法、外碎片问题。</p>
+<h5 id="1-分区链表"><a href="#1-分区链表" class="headerlink" title="1.分区链表"></a>1.分区链表</h5><p>在可变分区中，内存管理的数据结构是分区链表。</p>
+<p>基本思路：对于内存中的每一个分区，分别创建一个链表节点，里面记录了该分区的各种信息，包括当前状态、分区的起始地址和长度。然后把所有的节点用指针链接起来，这样就得到了一个分区链表。另外，在组织这些链表节点的时候，是按照起始地址的递增顺序来排列的，从低地址到高地址，依次排列。</p>
+<h5 id="2-分区分配算法"><a href="#2-分区分配算法" class="headerlink" title="2.分区分配算法"></a>2.分区分配算法</h5><p>所谓分区分配算法，是指当一个新进程来到的时候，需要为它寻找某个空闲分区，该空闲分区的大小必须大于或等于这个进程的要求。如果是大于要求，那么就要将该分区分割成两个小分区，其中一个分区为要求的大小，并标记为“占用“，即用它来装入这个进程。而另一个分区为剩余的部分，因此，还是把它标记为”空闲“。</p>
+<p>分区分配算法包括最先匹配法、下次匹配法、最佳匹配法和最坏匹配法。</p>
+<h5 id="3-分区回收算法"><a href="#3-分区回收算法" class="headerlink" title="3.分区回收算法"></a>3.分区回收算法</h5><p>当一个进程运行结束后，需要回收它所占用的内存分区。在固定分区存储管理方案中，分区的回收很简单，只要将该分区标记为空闲即可。而在可变分区中，当一个进程释放了它所占用的分区后，需要将相邻的几个空闲分区合并为一个大的空闲分区。</p>
+<h5 id="4-外碎片问题"><a href="#4-外碎片问题" class="headerlink" title="4.外碎片问题"></a>4.外碎片问题</h5><p>解决外碎片问题，可以采用内存紧缩技术。</p>
+<h3 id="重定位和存储保护"><a href="#重定位和存储保护" class="headerlink" title="重定位和存储保护"></a>重定位和存储保护</h3><h3 id="页式和段式存储管理"><a href="#页式和段式存储管理" class="headerlink" title="页式和段式存储管理"></a>页式和段式存储管理</h3><h4 id="页式存储管理"><a href="#页式存储管理" class="headerlink" title="页式存储管理"></a>页式存储管理</h4><h5 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h5><p>基本思路：一方面，把物理内存划分为许多个固定大小的内存块，称为物理页面或页框。另一方面，把逻辑地址空间也划分为大小相同的块，称为逻辑页面，或者简称为页面。当一个用户程序被装入到内存时，不是以整个程序为单位，把它整块地址存放在一个连续的区域，而是以页面为单位来进行分配。</p>
+<h5 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2.数据结构"></a>2.数据结构</h5><p>在页式存储管理中用到的第一个数据结构是页表。系统会为每一个进程都建立一个页表，页表给出了逻辑页面号和具体的内存块号，即物理页面号之间的对应关系。</p>
+<p>页式存储管理用到的第二个数据结构是物理页面表，也就是说，在系统中设立一张物理页面表，用来描述内存空间当中，各个物理页面的分配使用情况。在具体的实现上，可以使用位示图法或空闲页面链表等方法。</p>
+<h5 id="3-内存的分配与回收"><a href="#3-内存的分配与回收" class="headerlink" title="3.内存的分配与回收"></a>3.内存的分配与回收</h5><p>分配：</p>
+<p>回收：</p>
+<h5 id="4-地址映射"><a href="#4-地址映射" class="headerlink" title="4.地址映射"></a>4.地址映射</h5>
                 
             </div>
             <hr/>
@@ -539,7 +555,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">llz</a>
+                    <a href="/about" rel="external nofollow noreferrer">Michael</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -549,7 +565,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://llz20.com/2021/09/01/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://llz20.com/2021/09/01/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+                    <a href="https://llz20.com/2021/11/26/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">https://llz20.com/2021/11/26/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,7 +578,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">llz</a>
+                    <a href="/about" target="_blank">Michael</a>
                     !
                 </span>
             </div>
@@ -586,11 +602,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -760,78 +772,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/02/MySQL%E5%B8%B8%E7%94%A8%E6%97%A5%E5%BF%97%E5%8F%8A%E4%BD%9C%E7%94%A8/">
+                <a href="/2021/11/26/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MySQL常用日志及作用">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="存储管理">
                         
-                        <span class="card-title">MySQL常用日志及作用</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            MySQL日志文件是工作和面试中经常会遇到的问题，本文主要介绍MySQL中几种常用的日志文件以及它们的作用。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
-                                    面试
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%97%A5%E5%BF%97/">
-                        <span class="chip bg-color">日志</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/09/01/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Java学习笔记">
-                        
-                        <span class="card-title">Java学习笔记</span>
+                        <span class="card-title">存储管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -842,14 +794,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="post-category">
-                                    编程语言
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
                                 </a>
                             
                             
@@ -858,12 +810,45 @@
                 </div>
 
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="设计模式之工厂方法模式">
+                        
+                        <span class="card-title">设计模式之工厂方法模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
