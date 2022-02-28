@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="IAST&amp;RASP, Michael">
+    <meta name="keywords" content="最大子数组和, Michael">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IAST&amp;RASP | Michael</title>
+    <title>最大子数组和 | Michael</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IAST&amp;RASP</h1>
+                    <h1 class="description center-align post-title">最大子数组和</h1>
                 </div>
             </div>
         </div>
@@ -457,8 +457,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/">
-                                <span class="chip bg-color">漏洞检测</span>
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -469,8 +469,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                漏洞检测系统
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -482,7 +482,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-12
+                    2022-02-28
                 </div>
                 
 
@@ -496,14 +496,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    99
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    1 分
                 </div>
                 
 
@@ -523,161 +523,23 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="RASP概述"><a href="#RASP概述" class="headerlink" title="RASP概述"></a>RASP概述</h2><h4 id="什么是RASP？"><a href="#什么是RASP？" class="headerlink" title="什么是RASP？"></a>什么是RASP？</h4><p>RASP（Runtime application self-protection）应用运行时自我保护。Gartner在2014年提出了应用自我保护技术（RASP）的概念，即将防护引擎嵌入到应用内部，不再依赖外部防护设备。根据 Gartner 的定义，RASP 是 “一种建立在应用中，或者连接在应用运行环境中的安全技术；该技术可以控制应用执行情况，并且检测和阻止实时的攻击”。该概念在 2012 年被当时的 Gartner 副总裁 Joseph Feiman（现 WhiteHat Security 首席战略官）提出。</p>
-<h4 id="RASP和WAF的区别"><a href="#RASP和WAF的区别" class="headerlink" title="RASP和WAF的区别"></a>RASP和WAF的区别</h4><p>目前主流的Web应用安全防护产品方案较多的是 WAF(Web Application Firewall)和RASP(Runtime Application Self-Protection)。</p>
-<p>WAF是门卫模型，通常部署在Web应用系统的外部边界，所有正常或恶意流量都需要通过特征规则和模式识别，通过特定的规则和模式识别出恶意请求，并且把它们拒之门外，拒绝向高风险的Web请求提供服务。WAF虽然可以有效个过滤出绝大多数恶意请求，但是不知道应用运行时的上下文，必然会造成一定程度的误报。并且WAF严重依赖于特征库，各种花式绕过，导致特征编写很难以不变应万变。</p>
-<p>RSAP将自身注入到应用程序中，与应用程序融为一体，实时监测、阻断攻击，使程序自身拥有自保护的能力。并且应用程序无需在编码时进行任何的修改，只需进行简单的配置即可。</p>
-<p>一般而言，WAF 会防止攻击者接触到墙后的脆弱应用；而 RASP 的理念是让应用自己能够防御实时的攻击。</p>
-<p>区别：部署、性能、检测能力、产品特性……</p>
-<h4 id="RASP能做什么？"><a href="#RASP能做什么？" class="headerlink" title="RASP能做什么？"></a>RASP能做什么？</h4><ol>
-<li>OWASP TOP10</li>
-<li>远程打补丁：修复应用程序漏洞和0Day</li>
-<li>应用监控：性能监控、日志采集</li>
-</ol>
-<h4 id="国内外的RASP项目"><a href="#国内外的RASP项目" class="headerlink" title="国内外的RASP项目"></a>国内外的RASP项目</h4><p>国外：</p>
-<table>
-<thead>
-<tr>
-<th>公司名称</th>
-<th>产品官网</th>
-<th>是否开源</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Micro Focus</td>
-<td><a target="_blank" rel="noopener" href="https://www.microfocus.com/en-us/products/application-defender/features">https://www.microfocus.com/en-us/products/application-defender/features</a></td>
-<td></td>
-</tr>
-<tr>
-<td>Prevoty</td>
-<td><a target="_blank" rel="noopener" href="https://www.prevoty.com/">https://www.prevoty.com/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>waratek</td>
-<td><a target="_blank" rel="noopener" href="https://www.waratek.com/application-security-platform/">https://www.waratek.com/application-security-platform/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>OWASP AppSensor</td>
-<td><a target="_blank" rel="noopener" href="http://appsensor.org/">http://appsensor.org/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>Shadowd</td>
-<td><a target="_blank" rel="noopener" href="https://shadowd.zecure.org/overview/introduction/"> https://shadowd.zecure.org/overview/introduction/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>immun</td>
-<td><a target="_blank" rel="noopener" href="https://www.immun.io/features">https://www.immun.io/features</a></td>
-<td></td>
-</tr>
-<tr>
-<td>Contrast Security</td>
-<td><a target="_blank" rel="noopener" href="https://www.contrastsecurity.com/runtime-application-self-protection-rasp">https://www.contrastsecurity.com/runtime-application-self-protection-rasp</a></td>
-<td></td>
-</tr>
-<tr>
-<td>Signal Sciences</td>
-<td><a target="_blank" rel="noopener" href="https://www.signalsciences.com/rasp-runtime-application-self-protection/">https://www.signalsciences.com/rasp-runtime-application-self-protection/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>BrixBits</td>
-<td><a target="_blank" rel="noopener" href="http://www.brixbits.com/security-analyzer.html">http://www.brixbits.com/security-analyzer.html</a></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>国内：</p>
-<table>
-<thead>
-<tr>
-<th><strong>产品名称</strong></th>
-<th><strong>产品官网</strong></th>
-<th><strong>概述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>灵蜥</td>
-<td><a target="_blank" rel="noopener" href="http://www.anbai.com/lxPlatform/">http://www.anbai.com/lxPlatform/</a></td>
-<td>灵蜥是北京安百科技研发的一款RASP防御产品，而RASP安全研究团队的核心是之前乌云核心成员，据我了解，乌云在2012年后半年左右的时候就对RASP技术开始进行研究了。目前灵蜥RASP安全防御技术以及升级到了2.0版本，对灵蜥1.0版本的架构以及防御点进行了大版本的升级，应该是目前防御比较完善的一家了。</td>
-</tr>
-<tr>
-<td>OneRasp</td>
-<td><a target="_blank" rel="noopener" href="https://www.oneapm.com/">https://www.oneapm.com/</a></td>
-<td>然后蓝海讯通研究的OneRasp也出现在市场，后面不知什么原因，蓝海讯通好像放弃了对oneRasp的研究以及售卖，现在oneRasp官网以及下线。</td>
-</tr>
-<tr>
-<td>OpenRasp</td>
-<td><a target="_blank" rel="noopener" href="https://rasp.baidu.com/">https://rasp.baidu.com/</a></td>
-<td>在随后可能就是大家都听过或者用过百度开源的OpenRasp，百度开源的rasp产品让更多的企业以及安全研究者接触和认识到了rasp技术。该项目目前社区活跃度挺高，插件开发也很简单，大大降低了使用门槛</td>
-</tr>
-<tr>
-<td>云锁</td>
-<td><a target="_blank" rel="noopener" href="https://www.yunsuo.com.cn/">https://www.yunsuo.com.cn</a></td>
-<td>云锁我是在18年的360安全大会上了解到的，官网将RASP技术列入了一个小功能，主打是的微隔离技术，关于微隔离技术，在这边我们不做探讨。有兴趣的可以搜索一下相关的技术文章。</td>
-</tr>
-<tr>
-<td>安数云</td>
-<td><a target="_blank" rel="noopener" href="http://www.datacloudsec.com/#/product-4">http://www.datacloudsec.com/#/product-4</a></td>
-<td>安数云WEB应用实时防护系统RASP是在我写这篇文章的时候，发现他们也开发了一款RASP产品才知道的。不过没有找到其技术白皮书等可参考的文章。</td>
-</tr>
-</tbody></table>
-<h4 id="RASP技术原理"><a href="#RASP技术原理" class="headerlink" title="RASP技术原理"></a>RASP技术原理</h4><p>在 Java 技术栈下，RASP 引擎以 javaagent 的形式实现，并运⾏在 JVM 之上。在应⽤服务器启动的时候，RASP 引擎借助 JVM ⾃身提供的 instrumentation 技术，通过替换字节码的⽅式对关键类⽅法进⾏挂钩:</p>
-<p><img src="https://llz20.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2021-09-13%20%E4%B8%8A%E5%8D%888.55.08.png" alt="截屏2021-09-13 上午8.55.08"></p>
-<p>在jdk1.5之后，java提供一个名为Instrumentation的API接口，Instrumentation 的最大作用，就是类定义动态改变和操作。开发者可以在一个普通Java程序（带有 main 函数的 Java 类）运行时，通过 – javaagent参数指定一个特定的 jar 文件（包含 Instrumentation 代理）来启动 Instrumentation 的代理程序。</p>
-<h4 id="RASP技术缺点"><a href="#RASP技术缺点" class="headerlink" title="RASP技术缺点"></a>RASP技术缺点</h4><ul>
-<li><p>不同的编程语言可能编译语言和应用程序的版本不一致都导致RASP产品无法通用，甚至导致网站挂掉；</p>
-</li>
-<li><p>如果RASP技术中对底层拦截点不熟悉，可能导致漏掉重要hook点，导致绕过；</p>
-</li>
-<li><p>对于csrf、ssrf、sql语句解析等问题目前还是基于部分正则进行防护(对于sql语句的解析问题可以使用AST语法树进行解析)。</p>
-</li>
-</ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>目前RASP还处于一个发展的阶段，尚未像防火墙等常见的安全产品一样有非常明确的功能边界(scope)，更多由RASP防御技术的用法可以发挥想象，比如日志监控、管理会话、安全过滤、请求管理等。 在研究RASP技术的时候，我发现RASP与APM有着部分相同的技术，APM本意是用于监控应用程序的，反转思路，在APM中监控应用程序的时候加入漏洞防护功能，即可形成了一个简单的RASP demo。在APM这方面，大家参考的对象可就很多了，比如：skywalking、newrelic等，skywalking是开源产品，在github上就可以直接查看其源代码，而且是Apache的项目，而newrelic的所有agent都没有进行任何代码混淆，官方安装文档也很丰富，这些都是可以进行参考的。 由此可见，有时候技术换个平台、换个想法，就是一个完全不一样的东西了。所以对于任何技术都可以发散性的去想象一下其他的应用场景，万一恰到好处呢？ 不论研究的技术是什么样的，可能大家实现的方式不一样，使用的技术不一样，使用的名称不一样，不过最终的目的就是为了保护应用程序安全，防止攻击者入侵成功。</p>
-<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tony_vip/article/details/106006030">RASP技术攻防之基础篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://paper.seebug.org/330/">Rasp技术介绍与实现</a></p>
-<p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/">OpenRASP官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://rasp.baidu.com/doc/hacking/architect/iast.html">OpenRASP技术文档</a></p>
-<h2 id="IAST概述"><a href="#IAST概述" class="headerlink" title="IAST概述"></a>IAST概述</h2><h4 id="什么是IAST？"><a href="#什么是IAST？" class="headerlink" title="什么是IAST？"></a>什么是IAST？</h4><p>交互式应用安全测试（Interactive application security testing IAST）是一个<strong>在应用和API中自动化识别和诊断软件漏洞的技术</strong>。如果从名字的缩写来看，插桩（Instrumented）式应用安全测试或许是一个更好的说法。<strong>IAST不是一个扫描器</strong>，重要的事说两遍，它不是一个扫描器，<strong>IAST持续地从内部监控你应用中的漏洞，在整个开发生命周期中，IAST通过你在开发和测试中使用的工具，实时地提供报警。</strong></p>
-<p>IAST最显著的特性是它使用插桩来收集安全信息，直接从运行中的代码发现问题，不是源代码扫描(SAST)，也不是HTTP 扫描(DAST)。但那并不意味着你要等到产品上线时才使用它，恰恰相反，你可在IDE中，当开始编写和测试第一行代码时，就使用IAST。</p>
-<p>IAST可以访问代码本身，能够在每行代码执行SAST，而且，IAST可以访问HTTP流量，也能够在每一次请求和响应时，执行类DAST的分析，因此，IAST的规则是SAST和DAST的一个功能合集。</p>
-<h4 id="DAST"><a href="#DAST" class="headerlink" title="DAST"></a>DAST</h4><p>DAST是一种黑盒测试技术，是目前应用最广泛、使用最简单的一种Web应用安全测试方法，安全工程师常用的工具如AWVS、AppScan等就是基于DAST原理的产品。</p>
-<p>实现原理：</p>
-<ol>
-<li>通过爬虫发现整个 Web 应用结构，爬虫会发现被测Web程序有多少个目录，多少个页面，页面中有哪些参数；</li>
-<li>根据爬虫的分析结果，对发现的页面和参数发送修改的 HTTP Request 进行攻击尝试（扫描规则库）；</li>
-<li>通过对于 Response 的分析验证是否存在安全漏洞。</li>
-</ol>
-<p>DAST这种测试方法主要测试Web应用程序的功能点，测试人员无需具备编程能力，无需了解应用程序的内部逻辑结构，不区分测试对象的实现语言，采用攻击特征库来做漏洞发现与验证，能发现大部分的高风险问题，因此是业界Web安全测试使用非常普遍的一种安全测试方案。DAST除了可以扫描应用程序本身之外，还可以扫描发现第三方开源组件、第三方框架的漏洞。</p>
-<h4 id="SAST"><a href="#SAST" class="headerlink" title="SAST"></a>SAST</h4><p>SAST需要从语义上理解程序的代码、依赖关系、配置文件。优势是代码具有高度可视性，能够检测更丰富的问题，包括漏洞及代码规范等问题。测试对象比DAST丰富，除Web应用程序之外还能够检测APP的漏洞，不需要用户界面，可通过IDE插件形式与集成开发环境（如Eclipse、IntelliJ IDEA）结合，实时检测代码漏洞问题，漏洞发现更及时，修复成本更低。</p>
-<p>实现原理：</p>
-<p>1） 首先通过调用语言的编译器或者解释器把前端的语言代码（如JAVA，C/C++源代码）转换成一种中间代码，将其源代码之间的调用关系、执行环境、上下文等分析清楚。</p>
-<p>2）语义分析：分析程序中不安全的函数，方法的使用的安全问题。</p>
-<p>3）数据流分析：跟踪，记录并分析程序中的数据传递过程所产生的安全问题。</p>
-<p>4）控制流分析：分析程序特定时间，状态下执行操作指令的安全问题。</p>
-<p>5）配置分析：分析项目配置文件中的敏感信息和配置缺失的安全问题。</p>
-<p>6）结构分析：分析程序上下文环境，结构中的安全问题。</p>
-<p>7）结合2）-6）的结果，匹配所有规则库中的漏洞特征，一旦发现漏洞就抓取出来。</p>
-<p>8）最后形成包含详细漏洞信息的漏洞检测报告，包括漏洞的具体代码行数以及漏洞修复的建议。</p>
-<h4 id="洞态IAST"><a href="#洞态IAST" class="headerlink" title="洞态IAST"></a>洞态IAST</h4><p>洞态IAST是一款被动式的交互式安全测试工具，具有漏洞检出率高、误报率低、无脏数据、支持数据包加密/一次性签名/验证码等不支持重放的场景下的漏洞检测、支持微服务/API网关/分布式应用等应用架构下的漏洞检测、支持对移动APP的后端服务器进行漏洞检测等优点。此外，洞态IAST支持在不发送数据包的前提下对历史数据中未出现漏洞的API进行的重复检测，最大可能的检测出漏洞。</p>
-<p><strong>洞态IAST的原理介绍</strong></p>
-<p>IAST的核心技术点有三个：</p>
-<p><strong>• 值传递算法：</strong>用于污点的标记和污点传播动作的检测；</p>
-<p><strong>• 污点链路梳理：</strong>用于分析污点的完整流向；</p>
-<p><strong>• Hook策略：</strong>用于定义代码流中需要检测是否有污点出现的位置（污点来源方法、污点传播方法、污点过滤方法、危险函数等）；</p>
-<p><strong>污点传播的原理：</strong>当应用程序从外部输入（HTTP请求、RPC请求、文件、消息队列等等）获取数据时，这些数据被标记为<strong>初始污点</strong>，数据在应用程序的各个方法/对象之间传递、通信时，出现了污点的流动，在污点流动过程中，污点数据的复制、变化等操作构成了污点的传播；当污点传播至危险函数，导致危险函数触发危险动作时，出现了漏洞。</p>
-<h2 id="RASP-amp-IAST和DevOps、DevSecOps"><a href="#RASP-amp-IAST和DevOps、DevSecOps" class="headerlink" title="RASP&amp;IAST和DevOps、DevSecOps"></a>RASP&amp;IAST和DevOps、DevSecOps</h2><h4 id="什么是DevOps？"><a href="#什么是DevOps？" class="headerlink" title="什么是DevOps？"></a>什么是DevOps？</h4><p>DevOps是一种开发模式，开发模式从早期的瀑布模型，到敏捷开发，再到DevOps，现在又新提出了DevSecOps。DevOps这个词，其实就是Development和Operations两个词的组合。它的英文发音是 /de’vɒps/，类似于“迪沃普斯”。<img src="https://llz20.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2021-09-13%20%E4%B8%8A%E5%8D%889.36.26.png" alt="截屏2021-09-13 上午9.36.26"></p>
-<p>早期所采用的软件交付模型，称之为“瀑布（Waterfall）模型”。瀑布模型，简而言之，就是等一个阶段所有工作完成之后，再进入下一个阶段。这种模型适合条件比较理想化（用户需求非常明确、开发时间非常充足）的项目。大家按部就班，轮流执行自己的职责即可。传统的软件开发流程是这样的：软件开发人员花费数周和数月编写代码，然后将代码交给QA（质量保障）团队进行测试，然后将最终的发布版交给运维团队去布署。所有的这三个阶段，即开发，测试，布署。但是，项目不可能是单向运作的。客户也是有需求的。产品也是会有问题的，需要改进的。随着时间推移，用户对系统的需求不断增加，与此同时，用户给的时间周期却越来越少。在这个情况下，大家发现，笨重迟缓的瀑布式开发已经不合时宜了。</p>
-<p>于是，软件开发团队引入了一个新的概念，那就是大名鼎鼎的——“敏捷开发（Agile Development）”。敏捷开发在2000年左右开始被世人所关注，是一种能应对快速变化需求的软件开发能力。其实简单来说，就是把大项目变成小项目，把大时间点变成小时间点，然后这样：有两个词经常会伴随着DevOps出现，那就是CI和CD。CI是Continuous Integration（持续集成），而CD对应多个英文，Continuous Delivery（持续交付）或Continuous Deployment（持续部署）。</p>
-<p>敏捷开发可以帮助更快地发现问题，产品被更快地交付到用户手中，团队可以更快地得到用户的反馈，从而进行更快地响应。而且，DevOps小步快跑的形式带来的版本变化是比较小的，风险会更小（如下图所示）。即使出现问题，修复起来也会相对容易一些。</p>
-<p>虽然敏捷开发大幅提升了软件开发的效率和版本更新的速度，但是它的效果仅限于开发环节。研发们发现，运维那边，依旧是铁板一块，成为了新的瓶颈。运维工程师，和开发工程师有着完全不同的思维逻辑。运维团队的座右铭，很简单，就是“稳定压倒一切”。运维的核心诉求，就是不出问题。什么情况下最容易出问题？发生改变的时候最容易出问题。所以说，运维非常排斥“改变”。</p>
-<p>DevOps是一组过程、方法与系统的统称，用于促进开发、技术运营和质量保障（QA）部门之间的沟通、协作与整合。从目标来看，DevOps就是让开发人员和运维人员更好地沟通合作，通过自动化流程来使得软件整体过程更加快捷和可靠。</p>
-<p><img src="https://llz20.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2021-09-13%20%E4%B8%8A%E5%8D%889.38.00.png" alt="截屏2021-09-13 上午9.38.00"></p>
-<h4 id="悬镜安全-DevSecOps全流程AI赋能"><a href="#悬镜安全-DevSecOps全流程AI赋能" class="headerlink" title="悬镜安全 - DevSecOps全流程AI赋能"></a>悬镜安全 - DevSecOps全流程AI赋能</h4><p><img src="https://llz20.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2021-09-13%20%E4%B8%8A%E5%8D%889.43.35.png" alt="截屏2021-09-13 上午9.43.35"></p>
-<p><img src="https://llz20.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2021-09-13%20%E4%B8%8A%E5%8D%889.47.25.png" alt="截屏2021-09-13 上午9.47.25"></p>
-<p><a target="_blank" rel="noopener" href="https://www.xmirror.cn/page/particulars?id=3612&type=xq&value=/resurce/Uploads/upfile/20201104/5fa216283ab5b.mp4">新一代灰盒安全测试技术实践分享</a></p>
+                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-subarray/">53. Maximum Subarray</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return <em>its sum</em>.</p>
+<p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a><strong>Example 1:</strong></h5><p><small>**Input: **nums = [-2,1,-3,4,-1,2,1,-5,4]</p>
+<p>**Output: **6</p>
+<p>**Explanation: **[4,-1,2,1] has the largest sum = 6.</p>
+</small>
+
+<h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a><strong>Example 2:</strong></h5><pre><code>Input: nums = [1]
+Output: 1
+</code></pre>
+<h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a><strong>Example 3:</strong></h5><pre><code>Input: nums = [5,4,-1,7,8]
+Output: 23
+</code></pre>
+<h5 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints:"></a><strong>Constraints:</strong></h5><pre><code>1 &lt;= nums.length &lt;= 105
+-104 &lt;= nums[i] &lt;= 104
+</code></pre>
 
                 
             </div>
@@ -694,7 +556,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">llz</a>
+                    <a href="/about" rel="external nofollow noreferrer">Michael</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -704,7 +566,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://llz20.com/2021/09/12/IAST&RASP%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/">https://llz20.com/2021/09/12/IAST&RASP%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</a>
+                    <a href="https://llz20.com/2022/02/28/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/">https://llz20.com/2022/02/28/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -717,7 +579,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">llz</a>
+                    <a href="/about" target="_blank">Michael</a>
                     !
                 </span>
             </div>
@@ -742,8 +604,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B/">
-                                    <span class="chip bg-color">漏洞检测</span>
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
                         </div>
@@ -915,17 +777,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/29/%E6%9A%B4%E5%8A%9B%E9%80%92%E5%BD%92/">
+                <a href="/2022/02/28/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="暴力递归">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="最大子数组和">
                         
-                        <span class="card-title">暴力递归</span>
+                        <span class="card-title">最大子数组和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -935,30 +798,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">数据结构与算法</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -972,13 +832,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/04/K%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                <a href="/2021/12/02/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="K个一组翻转链表">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="背包问题">
                         
-                        <span class="card-title">K个一组翻转链表</span>
+                        <span class="card-title">背包问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -989,35 +849,23 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
+                                    动态规划
+                                </a>
+                            
+                            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
-                    </a>
-                    
                 </div>
                 
             </div>
