@@ -489,21 +489,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-02
+                    2021-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    314
+                    705
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -535,7 +535,8 @@
 <p>接下来本文就分别讨论这三类背包问题。</p>
 <h2 id="1-01背包问题"><a href="#1-01背包问题" class="headerlink" title="1. 01背包问题"></a>1. 01背包问题</h2><h3 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h3><p>有<strong>n</strong>种物品和一个最多能承重<strong>W</strong>的背包。第i件物品的重量为**w<del>i</del><strong>，价值为</strong>v<del>i</del>**，每种物品只有一个，即限定每种物品要么拿（1个）要么不拿（0个）。</p>
 <p>在总重量不超过背包承载上限<strong>W</strong>的情况下，能装入背包的最大价值是多少？</p>
-<h3 id="1-2-思路分析"><a href="#1-2-思路分析" class="headerlink" title="1.2 思路分析"></a>1.2 思路分析</h3><p>01背包问题是最基本的背包问题，第一次遇见这个问题的时候，我脑海里的第一反应就是采用一种贪心的思想，每种物品的价值/重量得到性价比</p>
+<h3 id="1-2-思路分析"><a href="#1-2-思路分析" class="headerlink" title="1.2 思路分析"></a>1.2 思路分析</h3><p>01背包问题是最基本的背包问题，第一次遇见这个问题的时候，我脑海里的第一个想法就是采用一种贪心的思想，每种物品的价值/重量，得到每种物品单位重量的价值，并且由大到小排序，然后从大到小依次选择物品装入背包。但仔细一想便发现这种方法会存在问题，因为我们面对的是01背包问题，即每种物品要么选要么不选，物品不能分割，所以就会存在一整个物品装不下，背包存在剩余空间问题，这就会影响达到全局最优。所以这个问题有两个维度，一个是要把背包装的尽可能满，另一个是背包里物品的单位重量的价格要尽可能的高。这两者需要一个权衡来达到最优，就好比算法的时间和空间复杂度也需要权衡一样。</p>
+<p>另一种朴素的思路就是暴力解法啦，即我们可以尝试选取所有可能的物品组合，并找出价值最高的组合。众所周知暴力解法的缺点就是复杂度太高，就本问题而言，我们究竟有多少可能的物品组合呢？每种物品只有选或不选两种可能，由此我们能想到用二进制表示组合方案，二进制的每一位代表一种物品。例如，假设我们有3种物品，我们就用3位二进制数表示选取方案，从000（全不选）—111（全选），一共有<strong>2^3^</strong>种选择方案。所以暴力解法的时间复杂度是O(2^n^)，实在是太高了。</p>
 
                 
             </div>
@@ -1043,7 +1044,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2020-2021</span>
+                <span id="year">2020-2022</span>
             
             <span id="year">2020</span>
             <a href="/about" target="_blank">Michael</a>
@@ -1052,7 +1053,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.6k</span>
+                        class="white-color">11k</span>
             
             
             
