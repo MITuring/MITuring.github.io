@@ -489,21 +489,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-30
+                    2022-04-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6
+                    628
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -523,7 +523,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="类加载子系统"><a href="#类加载子系统" class="headerlink" title="类加载子系统"></a>类加载子系统</h3>
+                <h3 id="类加载子系统"><a href="#类加载子系统" class="headerlink" title="类加载子系统"></a>类加载子系统</h3><h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p>其中类加载的过程包括了<code>加载</code>、<code>验证</code>、<code>准备</code>、<code>解析</code>、<code>初始化</code>五个阶段。在这五个阶段中，<code>加载</code>、<code>验证</code>、<code>准备</code>和<code>初始化</code>这四个阶段发生的顺序是确定的，*而<code>解析</code>阶段则不一定，它在某些情况下可以在初始化阶段之后开始，这是为了支持Java语言的运行时绑定(也成为动态绑定或晚期绑定)*。另外注意这里的几个阶段是按顺序开始，而不是按顺序进行或完成，因为这些阶段通常都是互相交叉地混合进行的，通常在一个阶段执行的过程中调用或激活另一个阶段。</p>
+<h3 id="类的加载-查找并加载类的二进制数据"><a href="#类的加载-查找并加载类的二进制数据" class="headerlink" title="类的加载: 查找并加载类的二进制数据"></a>类的加载: 查找并加载类的二进制数据</h3><p>加载时类加载过程的第一个阶段，在加载阶段，虚拟机需要完成以下三件事情:</p>
+<ul>
+<li>通过一个类的全限定名来获取其定义的二进制字节流。</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。</li>
+<li>在Java堆中生成一个代表这个类的java.lang.Class对象，作为对方法区中这些数据的访问入口。</li>
+</ul>
+<p>相对于类加载的其他阶段而言，<em>加载阶段(准确地说，是加载阶段获取类的二进制字节流的动作)是可控性最强的阶段</em>，因为开发人员既可以使用系统提供的类加载器来完成加载，也可以自定义自己的类加载器来完成加载。</p>
+<p>加载阶段完成后，虚拟机外部的 二进制字节流就按照虚拟机所需的格式存储在方法区之中，而且在Java堆中也创建一个<code>java.lang.Class</code>类的对象，这样便可以通过该对象访问方法区中的这些数据。</p>
+<p>类加载器并不需要等到某个类被“首次主动使用”时再加载它，JVM规范允许类加载器在预料某个类将要被使用时就预先加载它，如果在预先加载的过程中遇到了.class文件缺失或存在错误，类加载器必须在程序首次主动使用该类时才报告错误(LinkageError错误)如果这个类一直没有被程序主动使用，那么类加载器就不会报告错误。</p>
+<blockquote>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -796,6 +808,14 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">存储管理</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -1049,7 +1069,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.7k</span>
+                        class="white-color">14.7k</span>
             
             
             
